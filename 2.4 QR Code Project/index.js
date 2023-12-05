@@ -8,8 +8,6 @@ import inquirer from "inquirer";
 import qr from "qr-image";
 import fs from "fs";
 
-var url = "";
-
 inquirer
     .prompt([
         {
@@ -19,9 +17,9 @@ inquirer
         }
     ])
     .then((answer) => {
-        url = answer.url;
+        const url = answer.url;
 
-        var qr_png = qr.image(url, { type: 'png' });
+        var qr_png = qr.image(url);
         qr_png.pipe(fs.createWriteStream("qr_code.png"));
 
         fs.writeFile("url.txt", url, (err) => {
