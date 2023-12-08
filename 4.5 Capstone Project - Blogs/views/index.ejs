@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Maker</title>
+</head>
+
+<body>
+    <h1>Blog</h1>
+    <form action="/submit" method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title">
+        <label for="post">Post:</label>
+        <input type="text" name="post">
+        <button type="submit">Create Post</button>
+    </form><br />
+    <h1>All Posts:</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Post Content</th>
+        </tr>
+        <% if (locals.posts) { %>
+            <% posts.forEach(post=> { %>
+                <tr id="blogPost">
+                    <td>
+                        <%= post.title %>
+                    </td>
+                    <td>
+                        <%= post.post %>
+                    </td>
+                    <% }); %>
+                </tr>
+                <% } %>
+    </table>
+</body>
+
+</html>
