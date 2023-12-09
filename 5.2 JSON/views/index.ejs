@@ -19,6 +19,9 @@
     <% if (!locals.chosenRecipe) { %>
       <h2>Pick your favourite taco ingredient 👆</h2>
       <% } else { %>
+        <h2>
+          <%= chosenRecipe.name %>
+        </h2>
         <h3>Ingredients:</h3>
         <ul id="ingredientsList">
           <li>
