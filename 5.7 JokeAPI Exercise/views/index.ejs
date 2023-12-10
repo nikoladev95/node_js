@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JokeAPI</title>
+</head>
+
+<body>
+    <h1>Generate a Joke by your name!</h1>
+    <form action="/" method="post">
+        <label for="name">Enter your name:</label>
+        <input type="text" name="name">
+        <button type="submit">Generate a Joke!</button>
+    </form>
+    <% if (locals.joke) { %>
+        <h2>Category: <%= joke.category %>
+        </h2>
+        <h2>Joke:
+            <% if (locals.joke.setup && locals.joke.delivery) { %>
+                <%= locals.joke.setup %> - <%=locals.joke.delivery %>
+                        <% } else { %>
+                            <%= locals.joke.joke %>
+                                <% } %>
+        </h2>
+        <% } %>
+</body>
+
+</html>
