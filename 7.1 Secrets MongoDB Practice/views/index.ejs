@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secrets</title>
+</head>
+
+<body>
+    <h1>Welcome to the Secrets Sharing Website</h1>
+    <form action="/create" method="post">
+        <label for="fName">Enter your first name:</label>
+        <input type="text" name="fName"><br /><br />
+        <label for="lName">Enter your last name:</label>
+        <input type="text" name="lName"><br /><br />
+        <label for="secret">Enter your secret:</label>
+        <input type="text" name="secret"><br /><br />
+        <button type="submit">Share Your Secret</button>
+    </form>
+    <br />
+    <hr>
+    <h2>Here are all the juicy secrets:</h2>
+    <% if (locals.secrets) { %>
+        <% secrets.forEach(secret=> { %>
+            <p>Author: <%= secret.fName %>
+                    <%= secret.lName %>
+            </p>
+            <p>Secret: <%= secret.secret %>
+            </p>
+            <p>Date: <%= secret.date %>
+            </p>
+            <a href="/edit/<%= secret._id %>">Edit</a>
+            <a href="/delete/<%= secret._id %>">Delete</a>
+            <hr>
+            <% }); %>
+                <% } %>
+</body>
+
+</html>

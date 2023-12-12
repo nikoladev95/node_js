@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+
+<body>
+    <h1>Edit a Secret</h1>
+    <% if (locals.secret) { %>
+        <form action="/update/<%= secret._id %>" method="post">
+            <label for="fName">First name:</label>
+            <input type="text" name="fName" value="<%= secret.fName%>"><br /><br />
+            <label for="lName">Last name:</label>
+            <input type="text" name="lName" value="<%= secret.lName %>"><br /><br />
+            <label for="secret">Secret:</label>
+            <input type="text" name="secret" value="<%= secret.secret %>"><br /><br />
+            <button type="submit">Edit Data</button>
+            <% } %>
+        </form>
+</body>
+
+</html>
